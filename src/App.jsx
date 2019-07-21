@@ -1,0 +1,47 @@
+import React, { lazy, Suspense } from 'react';
+import { Route, Router, Switch, Redirect } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import { ThemeProvider } from '@material-ui/styles';
+import muiTheme from '@styles/muiTheme';
+
+/* Cpmponents */
+import Page from '@components/Page';
+import Loading from '@components/Loading';
+
+/* Routes */
+import routes from '@routes';
+
+/* Pages */
+const NewsFeed = lazy(() => import(/* webpackChunkName: 'NewsFeed' */ '@pages/NewsFeed'));
+
+const history = createBrowserHistory();
+
+// Execute when user navigates between routes
+const onRouteChange = (history) => {
+  history.listen((location) => {
+    window.scrollTo(0, 0);
+  });
+};
+
+onRouteChange(history);
+
+const redirectToHome = () => <Redirect to={routes.newsFeed} />;
+
+const App = () => (
+  <ThemeProvider theme={muiTheme}>
+    <div className="App">
+      <Page>
+        <Router history={history}>
+          <Suspense fallback={<Loading />}>
+            <Switch>
+              <Route exact path={routes.newsFeed} component={NewsFeed} />
+              <Route component={redirectToHome} />
+            </Switch>
+          </Suspense>
+        </Router>
+      </Page>
+    </div>
+  </ThemeProvider>
+);
+
+export default App;
