@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import getNews from '@services/newsService';
+import forceHttps from '@utils/forceHttps';
 
 /* Material UI Components */
 import Grid from '@material-ui/core/Grid';
@@ -53,7 +54,7 @@ const NewsFeed = () => {
                     newsSource={a.source.name}
                     newsDate={a.publishedAt}
                     newsTitle={a.title}
-                    newsImage={typeof a.urlToImage === 'string' ? a.urlToImage.replace('http://', 'https://') : a.urlToImage}
+                    newsImage={typeof a.urlToImage === 'string' ? forceHttps(a.urlToImage) : a.urlToImage}
                     newsDescription={a.description}
                     newsUrl={a.url}
                   />
