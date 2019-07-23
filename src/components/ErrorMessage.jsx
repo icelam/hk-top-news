@@ -6,12 +6,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     minHeight: '100vh'
   }
-}));
+});
 
 const ErrorMessage = ({ message }) => {
   const classes = useStyles();

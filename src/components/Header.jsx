@@ -15,14 +15,14 @@ const RefreshIcon = () => (
   </IconButton>
 ); */
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles({
   root: {
     flexGrow: 1
   },
   title: {
     flexGrow: 1
   }
-}));
+});
 
 const Header = () => {
   const classes = useStyles();

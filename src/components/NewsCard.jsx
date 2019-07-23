@@ -15,9 +15,6 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   card: {
     height: '100%'
-  },
-  source: {
-    fontSize: 14
   }
 });
 
