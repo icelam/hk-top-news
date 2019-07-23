@@ -5,18 +5,20 @@ import forceHttps from '@utils/forceHttps';
 
 /* Material UI Components */
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 
 /* Cpmponents */
 import Loading from '@components/Loading';
 import NewsCard from '@components/NewsCard';
 import ErrorMessage from '@components/ErrorMessage';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   wrapper: {
-    padding: '88px 0 24px 0'
+    padding: `${theme.spacing(11)}px 0 ${theme.spacing(3)}px 0`,
+    [theme.breakpoints.only('xs')]: {
+      padding: `${theme.spacing(9)}px 0 ${theme.spacing(3)}px 0`
+    }
   }
-});
+}));
 
 const NewsFeed = () => {
   const classes = useStyles();
