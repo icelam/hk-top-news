@@ -9,7 +9,7 @@ You will need to register a News API key and add it to `.env` file's `REACT_APP_
 * Developed using Node.js 10.x
 
 ## Development ##
-* `npm run dev`
+* `npm start`
 
 ## Build production ##
 * `npm run build`
