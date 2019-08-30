@@ -17,6 +17,5 @@ You will need to register a News API key and add it to `.env` file's `REACT_APP_
 ## To-do ##
 * Background sync
 * Notification when there is update after background sync ([Reference](https://pwa-workshop.js.org/5-background-sync/#background-synchronization))
-* Refresh button on app bar (i.e. Implement Redux store)
 * Detect for device offline and inform user they are reading cached results
 * Bookmark function (i.e. Local Storage)

@@ -12,7 +12,7 @@ import Loading from '@components/Loading';
 import routes from '@routes';
 
 /* Pages */
-const NewsFeed = lazy(() => import(/* webpackChunkName: 'NewsFeed' */ '@pages/NewsFeed'));
+const NewsFeedContainer = lazy(() => import(/* webpackChunkName: 'NewsFeed' */ '@containers/NewsFeedContainer'));
 
 const history = createBrowserHistory();
 
@@ -34,7 +34,7 @@ const App = () => (
         <Router history={history}>
           <Suspense fallback={<Loading />}>
             <Switch>
-              <Route exact path={routes.newsFeed} component={NewsFeed} />
+              <Route exact path={routes.newsFeed} component={NewsFeedContainer} />
               <Route component={redirectToHome} />
             </Switch>
           </Suspense>

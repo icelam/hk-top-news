@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import getNews from '@services/newsService';
 import forceHttps from '@utils/forceHttps';
 
 /* Material UI Components */
@@ -20,37 +20,27 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const NewsFeed = () => {
+const NewsFeed = ({ actions, pageLoading, newsArticles, fetchError }) => {
   const classes = useStyles();
 
-  const [loading, setLoadStatus] = useState(true);
-  const [apiResult, setApiResult] = useState({});
-  const [fetchError, setFetchError] = useState(false);
-
   useEffect(() => {
-    getNews().then(({ data }) => {
-      setApiResult(data);
-    }).catch(() => {
-      setFetchError(true);
-    }).then(() => {
-      setLoadStatus(false);
-    });
+    actions.fetchNews();
   }, []);
 
   // Fetching News
-  if (loading) {
+  if (pageLoading) {
     return <Loading />;
   }
 
   // Fetch finished and API results contains atricles key
-  if (!fetchError && typeof apiResult === 'object' && Object.prototype.hasOwnProperty.call(apiResult, 'articles')) {
+  if (!fetchError) {
     // At least 1 article
-    if (apiResult.articles.length) {
+    if (newsArticles.length) {
       return (
         <div className={classes.wrapper}>
           <Grid container spacing={2}>
             {
-              apiResult.articles.map((a, i) => (
+              newsArticles.map(a => (
                 <Grid key={a.url} item xs={12} sm={6} md={4} lg={4}>
                   <NewsCard
                     newsSource={a.source.name}
@@ -74,6 +64,25 @@ const NewsFeed = () => {
 
   // Error when fetching news or API results is invalid
   return <ErrorMessage message="網絡錯誤，請稍候再試。" />;
+};
+
+NewsFeed.propTypes = {
+  actions: PropTypes.object.isRequired,
+  pageLoading: PropTypes.bool.isRequired,
+  newsArticles: PropTypes.arrayOf(PropTypes.shape({
+    author: PropTypes.string,
+    content: PropTypes.string,
+    description: PropTypes.string.isRequired,
+    publishedAt: PropTypes.string.isRequired,
+    source: PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string.isRequired
+    }),
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    urlToImage: PropTypes.string
+  })).isRequired,
+  fetchError: PropTypes.bool.isRequired
 };
 
 export default NewsFeed;

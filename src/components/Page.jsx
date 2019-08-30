@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Container from '@material-ui/core/Container';
 
 /* Cpmponents */
-import Header from '@components/Header';
+import { Header } from '@containers/HeaderContainer';
 
 const Page = ({ children }) => (
   <Fragment>
