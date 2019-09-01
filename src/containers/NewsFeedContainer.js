@@ -5,7 +5,12 @@ import NewsFeed from '@pages/NewsFeed';
 
 const mapStateToProps = state => ({
   pageLoading: state.pageLoading,
-  newsArticles: state.newsArticles,
+  pagination: state.pagination,
+  newsArticles: state.newsArticles.filter(article => (
+    article.source.name.toLowerCase().includes(state.keyword.toLowerCase())
+    || article.title.toLowerCase().includes(state.keyword.toLowerCase())
+    || article.description.toLowerCase().includes(state.keyword.toLowerCase())
+  )),
   fetchError: state.fetchError
 });
 

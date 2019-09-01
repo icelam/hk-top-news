@@ -1,7 +1,9 @@
 const initialState = {
   pageLoading: true,
+  pagination: 0,
   newsArticles: [],
-  fetchError: false
+  fetchError: false,
+  keyword: ''
 };
 
 export default initialState;

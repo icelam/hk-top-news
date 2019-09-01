@@ -5,6 +5,12 @@ To cache third party responses and image assets, `workbox-build` was useed to ov
 
 You will need to register a News API key and add it to `.env` file's `REACT_APP_NEWS_API_KEY` variable.
 
+## Note ##
+
+This is an experiment branch. Not until the API endpoint `/everything` supports filtering by country (or I manage to figure out how to filter yahoo.com.hk and appledaily.com.hk), it cannot be put to production.
+
+***
+
 ## Node version ##
 * Developed using Node.js 10.x
 

@@ -6,29 +6,39 @@ export const fetchNewsStart = () => ({
   pageLoading: true
 });
 
-export const fetchNewsFinish = () => ({
+const fetchNewsFinish = () => ({
   type: types.FETCH_NEWS_FINISH,
   pageLoading: false
 });
 
-export const fetchNewsError = () => ({
+const fetchNewsError = () => ({
   type: types.FETCH_NEWS_ERROR,
   fetchError: true
 });
 
-export const updateNewsData = articles => ({
+const updateNewsData = articles => ({
   type: types.UPDATE_NEWS_DATA,
   newsArticles: articles
 });
 
 export const clearNewsData = () => ({
-  type: types.CLEAR_NEWS_DATA
+  type: types.CLEAR_NEWS_DATA,
+  newsArticles: [],
+  pagination: 0
 });
 
-export const fetchNews = () => (dispatch) => {
-  getNews().then(({ data }) => {
+const updatePagination = page => ({
+  type: types.UPDATE_PAGINATION,
+  pagination: page
+});
+
+export const fetchNews = page => (dispatch) => {
+  dispatch(fetchNewsStart());
+
+  getNews(page).then(({ data }) => {
     if (typeof data === 'object' && Object.prototype.hasOwnProperty.call(data, 'articles')) {
       dispatch(updateNewsData(data.articles));
+      dispatch(updatePagination(page));
     } else {
       dispatch(fetchNewsError());
     }
@@ -42,5 +52,10 @@ export const fetchNews = () => (dispatch) => {
 export const refreshNews = () => (dispatch) => {
   dispatch(fetchNewsStart());
   dispatch(clearNewsData());
-  dispatch(fetchNews());
+  dispatch(fetchNews(1));
 };
+
+export const updateSearchKeyword = e => ({
+  type: types.UPDATE_SEARCH_KEYWORD,
+  keyword: e.target.value
+});

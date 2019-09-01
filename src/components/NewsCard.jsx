@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   }
 });
 
-const NewsCard = ({
+const NewsCard = React.memo(({
   newsSource,
   newsDate,
   newsTitle,
@@ -64,7 +64,7 @@ const NewsCard = ({
       </CardActionArea>
     </Card>
   );
-};
+});
 
 NewsCard.propTypes = {
   newsSource: PropTypes.string.isRequired,

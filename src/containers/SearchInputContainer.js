@@ -1,19 +1,15 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as newsActions from '@store/actions';
-import Header from '@components/Header';
-
-const mapStateToProps = state => ({
-  pageLoading: state.pageLoading
-});
+import SearchInput from '@components/SearchInput';
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(newsActions, dispatch)
 });
 
-const HeaderContainer = connect(
-  mapStateToProps,
+const SearchInputContainer = connect(
+  null,
   mapDispatchToProps
-)(Header);
+)(SearchInput);
 
-export { HeaderContainer as Header };
+export { SearchInputContainer as SearchInput };
