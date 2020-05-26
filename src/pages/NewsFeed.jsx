@@ -11,7 +11,7 @@ import Loading from '@components/Loading';
 import NewsCard from '@components/NewsCard';
 import ErrorMessage from '@components/ErrorMessage';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   wrapper: {
     padding: `${theme.spacing(11)}px 0 ${theme.spacing(3)}px 0`,
     [theme.breakpoints.only('xs')]: {
@@ -20,12 +20,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const NewsFeed = ({ actions, pageLoading, newsArticles, fetchError }) => {
+const NewsFeed = ({
+  actions, pageLoading, newsArticles, fetchError
+}) => {
   const classes = useStyles();
 
   useEffect(() => {
     actions.fetchNews();
-  }, []);
+  }, [actions]);
 
   // Fetching News
   if (pageLoading) {
@@ -40,7 +42,7 @@ const NewsFeed = ({ actions, pageLoading, newsArticles, fetchError }) => {
         <div className={classes.wrapper}>
           <Grid container spacing={2}>
             {
-              newsArticles.map(a => (
+              newsArticles.map((a) => (
                 <Grid key={a.url} item xs={12} sm={6} md={4} lg={4}>
                   <NewsCard
                     newsSource={a.source.name}
@@ -72,7 +74,7 @@ NewsFeed.propTypes = {
   newsArticles: PropTypes.arrayOf(PropTypes.shape({
     author: PropTypes.string,
     content: PropTypes.string,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string,
     publishedAt: PropTypes.string.isRequired,
     source: PropTypes.shape({
       id: PropTypes.string,
