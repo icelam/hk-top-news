@@ -16,9 +16,10 @@ export const fetchNewsError = () => ({
   fetchError: true
 });
 
-export const updateNewsData = articles => ({
+export const updateNewsData = (articles) => ({
   type: types.UPDATE_NEWS_DATA,
-  newsArticles: articles
+  newsArticles: articles,
+  fetchError: false
 });
 
 export const clearNewsData = () => ({
