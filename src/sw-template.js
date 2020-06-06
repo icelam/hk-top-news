@@ -27,7 +27,7 @@ if (typeof importScripts === 'function') {
     );
 
     workbox.routing.registerRoute(
-      /^https:\/\/newsapi\.org.*/,
+      /^https:\/\/pinkylam.me\/playground\/hk-top-news\/api*/,
       new workbox.strategies.NetworkFirst({
         cacheName: 'newsApiCache',
         plugins: [
