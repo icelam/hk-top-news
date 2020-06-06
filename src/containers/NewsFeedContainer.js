@@ -3,13 +3,13 @@ import { bindActionCreators } from 'redux';
 import * as newsActions from '@store/actions';
 import NewsFeed from '@pages/NewsFeed';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   pageLoading: state.pageLoading,
   newsArticles: state.newsArticles,
   fetchError: state.fetchError
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(newsActions, dispatch)
 });
 

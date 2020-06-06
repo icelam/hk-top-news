@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import * as newsActions from '@store/actions';
 import Header from '@components/Header';
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(newsActions, dispatch)
 });
 

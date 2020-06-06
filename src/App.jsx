@@ -1,5 +1,7 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Router, Switch, Redirect } from 'react-router-dom';
+import {
+  Route, Router, Switch, Redirect
+} from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { ThemeProvider } from '@material-ui/styles';
 import muiTheme from '@styles/muiTheme';
