@@ -1,4 +1,4 @@
-export const zeroPad = n => (n < 10 ? `0${n}` : `${n}`);
+export const zeroPad = (n) => (n < 10 ? `0${n}` : `${n}`);
 
 export const formatDate = (date) => {
   const d = new Date(date);
