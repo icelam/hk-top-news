@@ -11,6 +11,7 @@
           ["@", "./src"],
           ["@components", "./src/components"],
           ["@containers", "./src/containers"],
+          ["@hooks", "./src/hooks"],
           ["@images", "./src/images"],
           ["@pages", "./src/pages"],
           ["@routes", "./src/routes"],

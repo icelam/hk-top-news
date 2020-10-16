@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import forceHttps from '@utils/forceHttps';
@@ -7,8 +7,8 @@ import forceHttps from '@utils/forceHttps';
 import Grid from '@material-ui/core/Grid';
 
 /* Cpmponents */
-import Loading from '@components/Loading';
 import NewsCard from '@components/NewsCard';
+import SnackBar from '@components/SnackBar';
 import ErrorMessage from '@components/ErrorMessage';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,55 +21,54 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NewsFeed = ({
-  actions, pageLoading, newsArticles, fetchError
+  retryFetch, pageLoading, newsArticles, fetchError
 }) => {
   const classes = useStyles();
 
-  useEffect(() => {
-    actions.fetchNews();
-  }, [actions]);
-
   // Fetching News
-  if (pageLoading) {
-    return <Loading />;
+  if (pageLoading && !newsArticles.length) {
+    return null;
   }
 
-  // Fetch finished and API results contains atricles key
-  if (!fetchError) {
-    // At least 1 article
-    if (newsArticles.length) {
-      return (
-        <div className={classes.wrapper}>
-          <Grid container spacing={2}>
-            {
-              newsArticles.map((a) => (
-                <Grid key={a.url} item xs={12} sm={6} md={4} lg={4}>
-                  <NewsCard
-                    newsSource={a.source.name}
-                    newsDate={a.publishedAt}
-                    newsTitle={a.title}
-                    newsImage={typeof a.urlToImage === 'string' ? forceHttps(a.urlToImage) : a.urlToImage}
-                    newsDescription={a.description}
-                    newsUrl={a.url}
-                  />
-                </Grid>
-              ))
-            }
-          </Grid>
-        </div>
-      );
-    }
+  return (
+    <>
+      {
+        // Fetch finished and API results contains at least 1 article
+        newsArticles.length
+          ? (
+            <div className={classes.wrapper}>
+              <Grid container spacing={2}>
+                {
+                  newsArticles.map((article) => (
+                    <Grid key={article.url} item xs={12} sm={6} md={4} lg={4}>
+                      <NewsCard
+                        newsSource={article.source.name}
+                        newsDate={article.publishedAt}
+                        newsTitle={article.title}
+                        newsImage={typeof article.urlToImage === 'string' ? forceHttps(article.urlToImage) : article.urlToImage}
+                        newsDescription={article.description}
+                        newsUrl={article.url}
+                      />
+                    </Grid>
+                  ))
+                }
+              </Grid>
+            </div>
+          )
+          : <ErrorMessage message="沒有新聞。" /> // No article
+      }
 
-    // No article
-    return <ErrorMessage message="暫時沒有新聞。" />;
-  }
-
-  // Error when fetching news or API results is invalid
-  return <ErrorMessage message="網絡錯誤，請稍候再試。" />;
+      {
+        fetchError
+          ? <SnackBar message="網絡錯誤，請稍候再試。" buttonText="重試" buttonAction={() => retryFetch()} />
+          : null
+      }
+    </>
+  );
 };
 
 NewsFeed.propTypes = {
-  actions: PropTypes.object.isRequired,
+  retryFetch: PropTypes.func.isRequired,
   pageLoading: PropTypes.bool.isRequired,
   newsArticles: PropTypes.arrayOf(PropTypes.shape({
     author: PropTypes.string,
@@ -87,4 +86,4 @@ NewsFeed.propTypes = {
   fetchError: PropTypes.bool.isRequired
 };
 
-export default NewsFeed;
+export default React.memo(NewsFeed);

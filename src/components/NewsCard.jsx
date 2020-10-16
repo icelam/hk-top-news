@@ -80,4 +80,4 @@ NewsCard.defaultProps = {
   newsDescription: null
 };
 
-export default NewsCard;
+export default React.memo(NewsCard);
