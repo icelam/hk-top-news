@@ -20,7 +20,7 @@
     "replace": "^1.2.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
+    "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "customize-cra": "^1.0.0",
     "eslint-config-airbnb": "^18.2.0",
