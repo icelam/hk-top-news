@@ -7,7 +7,7 @@
 </p>
 <p align="center">
     <a href="https://reactjs.org/"><img height="20" src="https://img.shields.io/badge/made_with-React-61dafb.svg?logo=react&style=flat" alt="Made with React"></a>
-    <a href="https://nodejs.org/en/"><img height="20" src="https://img.shields.io/badge/Node.js-10.16-026e00.svg?logo=Node.js&logoColor=white&style=flat" alt="Node.js"></a>
+    <a href="https://nodejs.org/en/"><img height="20" src="https://img.shields.io/badge/Node.js-12.16-026e00.svg?logo=Node.js&logoColor=white&style=flat" alt="Node.js"></a>
     <a href="https://yarnpkg.com/"><img height="20" src="https://img.shields.io/badge/Yarn-1.17.3-25799f.svg?logo=Yarn&logoColor=white&style=flat" alt="Yarn"></a>
     <a href="https://eslint.org/"><img height="20" src="https://img.shields.io/badge/code_style-ESLint-5b5be0.svg?logo=eslint&style=flat" alt="ESLint"></a>
     <a href="https://conventionalcommits.org"><img height="20" src="https://img.shields.io/badge/conventional_commits-1.0.0-fa6673.svg?style=flat" alt="Conventional Commits"></a>
@@ -26,7 +26,7 @@ To cache third party responses and image assets, `workbox-build` was useed to ov
 * You will need to register a News API key and add it to `.env` file's `NEWS_API_KEY` variable
 
 ### Node version ###
-* Developed using Node.js 10.16
+* Developed using Node.js 12.16
 
 ### Development ###
 * `npm start`
