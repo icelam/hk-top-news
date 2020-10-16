@@ -9,7 +9,7 @@ if (typeof importScripts === 'function') {
 
     /* custom cache rules */
     workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL('/index.html'), {
-      blacklist: [/^\/_/, /\/[^\/]+\.[^\/]+$/]
+      blacklist: [/^\/_/, /\/[^\/]+\.[^\/]+$/, /^(.*)\/api\/news/]
     });
 
     workbox.routing.registerRoute(
