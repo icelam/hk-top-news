@@ -1,6 +1,17 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
+
+const breakpoints = createBreakpoints({});
 
 const muiTheme = createMuiTheme({
+  mixins: {
+    toolbar: {
+      minHeight: 56,
+      [breakpoints.up('sm')]: {
+        minHeight: 64
+      }
+    }
+  },
   palette: {
     primary: {
       light: '#ff5c5c',
