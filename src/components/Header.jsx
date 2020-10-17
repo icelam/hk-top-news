@@ -20,6 +20,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1
   },
+  container: {
+    [theme.breakpoints.only('xs')]: {
+      paddingRight: theme.spacing(1)
+    }
+  },
   title: {
     flexGrow: 1,
     [theme.breakpoints.only('xs')]: {
@@ -36,9 +41,8 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   refreshButton: {
-    '&:hover': {
-      backgroundColor: 'transparent'
-    }
+    padding: theme.spacing(1),
+    marginLeft: theme.spacing(0.5)
   }
 }));
 
@@ -49,7 +53,7 @@ const Header = ({
 
   return (
     <AppBar className={classes.root}>
-      <Container>
+      <Container className={classes.container}>
         <Toolbar disableGutters>
           <img src={logo} alt="Logo" className={classes.logo} />
           <Typography variant="h6" color="inherit" className={classes.title}>
