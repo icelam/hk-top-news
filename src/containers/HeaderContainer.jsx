@@ -19,7 +19,7 @@ const HeaderContainer = () => {
     pageLoading, keyword
   } = useSelector((state) => ({
     pageLoading: state.pageLoading,
-    keyword
+    keyword: state.keyword
   }));
 
   // debounce search
