@@ -1,11 +1,13 @@
 import axios from 'axios';
 
 // API Specification: https://newsapi.org/docs/endpoints/top-headlines
-const getNews = () => axios.get('https://pinkylam.me/playground/hk-top-news/api/news', {
+const getNews = (page, pageSize = 10, keyword = '') => axios.get('https://pinkylam.me/playground/hk-top-news/api/news', {
   params: {
     country: 'hk',
     category: 'general',
-    pageSize: 100
+    q: keyword,
+    pageSize,
+    page
   }
 });
 

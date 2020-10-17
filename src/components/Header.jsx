@@ -10,42 +10,83 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Refresh from '@material-ui/icons/Refresh';
 
-const useStyles = makeStyles({
+/* Components */
+import ProgressBar from '@components/ProgressBar';
+import SearchInput from '@components/SearchInput';
+
+import logo from '@images/logo-light.svg';
+
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    [theme.breakpoints.only('xs')]: {
+      display: 'none'
+    }
+  },
+  logo: {
+    height: theme.spacing(4),
+    marginRight: theme.spacing(2)
+  },
+  search: {
+    [theme.breakpoints.only('xs')]: {
+      flexGrow: 1
+    }
+  },
+  refreshButton: {
+    '&:hover': {
+      backgroundColor: 'transparent'
+    }
   }
-});
+}));
 
-const Header = ({ actions }) => {
+const Header = ({
+  onSearch, searchValue, refreshNews, pageLoading
+}) => {
   const classes = useStyles();
 
   return (
     <AppBar className={classes.root}>
       <Container>
         <Toolbar disableGutters>
+          <img src={logo} alt="Logo" className={classes.logo} />
           <Typography variant="h6" color="inherit" className={classes.title}>
             香港熱門新聞
           </Typography>
+
+          <SearchInput
+            className={classes.search}
+            onSearch={onSearch}
+            searchValue={searchValue}
+          />
+
           <IconButton
             aria-label="Refresh"
             aria-controls="menu-appbar"
             aria-haspopup="false"
             color="inherit"
-            onClick={actions.refreshNews}
+            onClick={refreshNews}
+            className={classes.refreshButton}
           >
             <Refresh />
           </IconButton>
+
         </Toolbar>
       </Container>
+      {
+        pageLoading ? <ProgressBar /> : null
+      }
     </AppBar>
   );
 };
 
 Header.propTypes = {
-  actions: PropTypes.object.isRequired
+  onSearch: PropTypes.func.isRequired,
+  searchValue: PropTypes.string.isRequired,
+  refreshNews: PropTypes.func.isRequired,
+  pageLoading: PropTypes.bool.isRequired
 };
 
 export default Header;
