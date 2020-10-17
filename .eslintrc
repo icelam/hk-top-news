@@ -50,5 +50,37 @@
     "react/jsx-one-expression-per-line": [
       "off"
     ]
-  }
+  },
+  "overrides": [
+    {
+      "plugins": ["jest"],
+      "files": ["**/*.test.js", "**/*.test.jsx"],
+      "extends": [
+        "react-app",
+        "airbnb",
+        "plugin:jsx-a11y/recommended",
+        "plugin:jest/recommended"
+      ],
+      "rules": {
+        "import/extensions": [
+          "error",
+          "ignorePackages",
+          {
+            "js": "never",
+            "jsx": "never"
+          }
+        ],
+        "react/jsx-filename-extension": ["off"],
+        "react/jsx-props-no-spreading": ["off"],
+        "comma-dangle": ["off"],
+        "arrow-parens": ["error", "as-needed"],
+        "jest/expect-expect": ["off"],
+        "jest/prefer-to-have-length": ["error"],
+        "jest/prefer-to-be-null": ["error"],
+        "jest/prefer-to-be-undefined": ["error"],
+        "jest/prefer-todo": ["error"],
+        "jest/no-alias-methods": ["error"]
+      }
+    }
+  ]
 }

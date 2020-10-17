@@ -27,6 +27,7 @@
     "eslint-config-airbnb": "^18.2.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "husky": "^3.1.0",
     "react-test-renderer": "^16.14.0",
@@ -37,9 +38,35 @@
     "start": "react-app-rewired start",
     "build": "GENERATE_SOURCEMAP=false react-app-rewired build && npm run build-sw",
     "postbuild": "node scripts/postBuild.js",
-    "test": "react-app-rewired test",
+    "test": "react-app-rewired test --verbose --watchAll",
+    "test:ci": "react-app-rewired test --watchAll=false --ci --runInBand",
     "eject": "react-scripts eject",
     "build-sw": "node ./src/sw-build.js"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/(routes|styles|containers|pages|services)/",
+      "<rootDir>/src/(App|serviceWorker|index|sw-build|sw-template)\\.(js|jsx)"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1",
+      "^@components(.*)$": "<rootDir>/src/components/$1",
+      "^@containers(.*)$": "<rootDir>/src/containers/$1",
+      "^@hooks(.*)$": "<rootDir>/src/hooks/$1",
+      "^@images(.*)$": "<rootDir>/src/images/$1",
+      "^@pages(.*)$": "<rootDir>/src/pages/$1",
+      "^@routes(.*)$": "<rootDir>/src/routes/$1",
+      "^@services(.*)$": "<rootDir>/src/services/$1",
+      "^@store(.*)$": "<rootDir>/src/store/$1",
+      "^@styles(.*)$": "<rootDir>/src/styles/$1",
+      "^@utils(.*)$": "<rootDir>/src/utils/$1"
+    }
   },
   "browserslist": {
     "production": [

@@ -58,6 +58,8 @@ const NewsFeedContainer = () => {
 
     window.addEventListener('scroll', onScroll, false);
     return () => window.removeEventListener('scroll', onScroll, false);
+  // Ignore oldScrollPosition to avoid infinite loop
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchNextPageNews, pageLoading, pagination, totalPage]);
 
   return (
