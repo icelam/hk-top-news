@@ -8,17 +8,17 @@ export const fetchNewsStart = () => ({
   pageLoading: true
 });
 
-const fetchNewsFinish = () => ({
+export const fetchNewsFinish = () => ({
   type: types.FETCH_NEWS_FINISH,
   pageLoading: false
 });
 
-const fetchNewsError = () => ({
+export const fetchNewsError = () => ({
   type: types.FETCH_NEWS_ERROR,
   fetchError: true
 });
 
-const updateNewsData = (articles) => ({
+export const updateNewsData = (articles) => ({
   type: types.UPDATE_NEWS_DATA,
   newsArticles: articles,
   fetchError: false
@@ -35,54 +35,57 @@ export const updatePagination = (page) => ({
   pagination: page
 });
 
-const updateTotalPage = (totalPage) => ({
+export const updateTotalPage = (totalPage) => ({
   type: types.UPDATE_TOTAL_PAGE,
   totalPage
 });
 
-export const fetchNews = () => (dispatch, getState) => {
-  dispatch(fetchNewsStart());
-
-  const { pagination, keyword } = getState();
-
-  getNews(pagination, PAGE_SIZE, keyword).then(({ data }) => {
-    if (typeof data === 'object' && data.status === 'ok' && data.articles) {
-      const totalPage = Math.ceil(data.totalResults / PAGE_SIZE);
-      dispatch(updateNewsData(data.articles));
-      dispatch(updateTotalPage(totalPage));
-    } else {
-      dispatch(fetchNewsError());
-    }
-  }).catch(() => {
-    dispatch(fetchNewsError());
-  }).finally(() => {
-    dispatch(fetchNewsFinish());
-  });
-};
-
-export const fetchFirstPageNews = () => (dispatch) => {
-  dispatch(updatePagination(1));
-  dispatch(fetchNews());
-};
-
-export const fetchNextPageNews = () => (dispatch, getState) => {
-  const { pagination } = getState();
-  dispatch(updatePagination(pagination + 1));
-  dispatch(fetchNews());
-};
-
-export const refreshNews = () => (dispatch) => {
-  dispatch(clearNewsData());
-  dispatch(fetchNews());
-};
-
-const updateSearchKeyword = (keyword) => ({
+export const updateSearchKeyword = (keyword) => ({
   type: types.UPDATE_SEARCH_KEYWORD,
   keyword
 });
 
-export const fetchNewsWithKeyword = (searchKeyword) => (dispatch) => {
+export const fetchNews = () => async (dispatch, getState) => {
+  dispatch(fetchNewsStart());
+
+  const { pagination, keyword } = getState();
+
+  try {
+    const { data } = await getNews(pagination, PAGE_SIZE, keyword);
+
+    if (data.status !== 'ok') {
+      throw new Error(data.message);
+    }
+
+    const totalPage = Math.ceil(data.totalResults / PAGE_SIZE);
+    dispatch(updateNewsData(data.articles));
+    dispatch(updateTotalPage(totalPage));
+  } catch (error) {
+    // console.error(error.message || 'Unknown error');
+    dispatch(fetchNewsError());
+  } finally {
+    dispatch(fetchNewsFinish());
+  }
+};
+
+export const fetchFirstPageNews = () => async (dispatch) => {
+  dispatch(updatePagination(1));
+  await dispatch(fetchNews());
+};
+
+export const fetchNextPageNews = () => async (dispatch, getState) => {
+  const { pagination } = getState();
+  dispatch(updatePagination(pagination + 1));
+  await dispatch(fetchNews());
+};
+
+export const refreshNews = () => async (dispatch) => {
+  dispatch(clearNewsData());
+  await dispatch(fetchNews());
+};
+
+export const fetchNewsWithKeyword = (searchKeyword) => async (dispatch) => {
   dispatch(updateSearchKeyword(searchKeyword));
   dispatch(clearNewsData());
-  dispatch(fetchNews());
+  await dispatch(fetchNews());
 };
