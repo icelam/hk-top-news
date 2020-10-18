@@ -32,6 +32,7 @@
     "husky": "^3.1.0",
     "react-test-renderer": "^16.14.0",
     "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.4",
     "workbox-build": "^4.3.1"
   },
   "scripts": {
