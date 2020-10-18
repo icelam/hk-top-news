@@ -25,31 +25,13 @@
     }
   },
   "rules": {
-    "no-console": [
-      "off"
-    ]
-    ,
-    "no-underscore-dangle": [
-      "off"
-    ],
-    "no-unused-expressions": [
-      2,
-      { "allowTernary": true }
-    ],
-    "comma-dangle": [
-      "error",
-      "never"
-    ],
-    "max-len": [
-      "error",
-      { "code": 150 }
-    ],
-    "import/no-extraneous-dependencies": [
-      "off"
-    ],
-    "react/jsx-one-expression-per-line": [
-      "off"
-    ]
+    "no-console": ["off"],
+    "no-underscore-dangle": ["off"],
+    "no-unused-expressions": [2, { "allowTernary": true }],
+    "comma-dangle": ["error", "never"],
+    "max-len": ["error", { "code": 150 }],
+    "import/no-extraneous-dependencies": ["off"],
+    "react/jsx-one-expression-per-line": ["off"]
   },
   "overrides": [
     {
@@ -57,23 +39,18 @@
       "files": ["**/*.test.js", "**/*.test.jsx"],
       "extends": [
         "react-app",
+        "plugin:jest/recommended",
         "airbnb",
-        "plugin:jsx-a11y/recommended",
-        "plugin:jest/recommended"
+        "plugin:jsx-a11y/recommended"
       ],
       "rules": {
-        "import/extensions": [
-          "error",
-          "ignorePackages",
-          {
-            "js": "never",
-            "jsx": "never"
-          }
-        ],
-        "react/jsx-filename-extension": ["off"],
-        "react/jsx-props-no-spreading": ["off"],
-        "comma-dangle": ["off"],
-        "arrow-parens": ["error", "as-needed"],
+        "no-console": ["off"],
+        "no-underscore-dangle": ["off"],
+        "no-unused-expressions": [2, { "allowTernary": true }],
+        "comma-dangle": ["error", "never"],
+        "max-len": ["error", { "code": 150 }],
+        "import/no-extraneous-dependencies": ["off"],
+        "react/jsx-one-expression-per-line": ["off"],
         "jest/expect-expect": ["off"],
         "jest/prefer-to-have-length": ["error"],
         "jest/prefer-to-be-null": ["error"],
