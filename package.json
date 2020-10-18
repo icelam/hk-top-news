@@ -44,6 +44,7 @@
     "build-sw": "node ./src/sw-build.js"
   },
   "jest": {
+    "globalSetup": "<rootDir>/jest.setup.global.js",
     "collectCoverage": true,
     "collectCoverageFrom": [
       "**/*.{js,jsx}",

@@ -1,6 +1,7 @@
 import { zeroPad, formatDate } from '../format';
 
-const ISODateString = '2020-10-18T09:53:34.140Z';
+process.env.TZ = 'UTC';
+const ISODateString = '2020-01-18T02:53:34.140Z';
 
 describe('zerpPad()', () => {
   it('should append leading zero to integer less than 10', () => {
@@ -19,6 +20,6 @@ describe('zerpPad()', () => {
 
 describe('formatDate()', () => {
   it('should convert ISO date string to "YYYY-MM-DD HH:mm" format', () => {
-    expect(formatDate(ISODateString)).toEqual('2020-10-18 17:53');
+    expect(formatDate(ISODateString)).toEqual('2020-01-18 02:53');
   });
 });
