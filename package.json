@@ -22,6 +22,8 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
     "@testing-library/react-hooks": "^3.4.2",
     "customize-cra": "^1.0.0",
     "eslint-config-airbnb": "^18.2.0",
@@ -46,6 +48,9 @@
   },
   "jest": {
     "globalSetup": "<rootDir>/jest.setup.global.js",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom"
+    ],
     "collectCoverage": true,
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
