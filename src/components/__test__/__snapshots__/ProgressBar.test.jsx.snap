@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error Message renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiLinearProgress-root MuiLinearProgress-colorSecondary MuiLinearProgress-indeterminate"
+    role="progressbar"
+  >
+    <div
+      class="MuiLinearProgress-bar MuiLinearProgress-barColorSecondary MuiLinearProgress-bar1Indeterminate"
+    />
+    <div
+      class="MuiLinearProgress-bar MuiLinearProgress-bar2Indeterminate MuiLinearProgress-barColorSecondary"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Progress Bar renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiLinearProgress-root MuiLinearProgress-colorSecondary MuiLinearProgress-indeterminate"
+    role="progressbar"
+  >
+    <div
+      class="MuiLinearProgress-bar MuiLinearProgress-barColorSecondary MuiLinearProgress-bar1Indeterminate"
+    />
+    <div
+      class="MuiLinearProgress-bar MuiLinearProgress-bar2Indeterminate MuiLinearProgress-barColorSecondary"
+    />
+  </div>
+</DocumentFragment>
+`;
