@@ -55,19 +55,21 @@ const Header = ({
     <AppBar className={classes.root}>
       <Container className={classes.container}>
         <Toolbar disableGutters>
-          <img src={logo} alt="Logo" className={classes.logo} />
-          <Typography variant="h6" color="inherit" className={classes.title}>
+          <img id="logo" src={logo} alt="Logo" className={classes.logo} />
+          <Typography variant="h6" color="inherit" id="app-name" className={classes.title}>
             香港熱門新聞
           </Typography>
 
           <SearchInput
+            id="search"
             className={classes.search}
             onSearch={onSearch}
             searchValue={searchValue}
           />
 
           <IconButton
-            aria-label="Refresh"
+            id="refresh"
+            aria-label="refresh"
             aria-controls="menu-appbar"
             aria-haspopup="false"
             color="inherit"

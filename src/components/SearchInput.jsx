@@ -41,7 +41,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const SearchInput = ({ onSearch, searchValue, className }) => {
+const SearchInput = ({
+  onSearch, searchValue, className, id
+}) => {
   const classes = useStyles();
 
   return (
@@ -50,6 +52,7 @@ const SearchInput = ({ onSearch, searchValue, className }) => {
         <SearchIcon />
       </div>
       <InputBase
+        id={id}
         placeholder="搜尋"
         classes={{
           root: classes.inputRoot,
@@ -66,11 +69,13 @@ const SearchInput = ({ onSearch, searchValue, className }) => {
 SearchInput.propTypes = {
   onSearch: PropTypes.func.isRequired,
   searchValue: PropTypes.string.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
+  id: PropTypes.string
 };
 
 SearchInput.defaultProps = {
-  className: ''
+  className: '',
+  id: ''
 };
 
 export default SearchInput;
