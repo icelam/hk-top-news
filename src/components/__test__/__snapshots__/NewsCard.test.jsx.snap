@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`News Card renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiPaper-root MuiCard-root makeStyles-card-1 MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiCardActionArea-root makeStyles-card-1"
+      href="https://news.mingpao.com/ins/%e6%b8%af%e8%81%9e/article/20201026/s00001/1603687539899/%e6%96%b0%e5%86%a0%e8%82%ba%e7%82%8e-%e4%bb%8a%e5%a2%9e8%e5%ae%97%e7%a2%ba%e8%a8%ba%e5%85%a8%e5%b1%ac%e8%bc%b8%e5%85%a5%e5%80%8b%e6%a1%88-%e4%b8%8d%e8%a8%ad%e7%96%ab%e6%83%85%e8%a8%98%e8%80%85%e6%9c%83"
+      tabindex="0"
+    >
+      <div
+        class="MuiCardHeader-root"
+      >
+        <div
+          class="MuiCardHeader-avatar"
+        >
+          <div
+            aria-label="Mingpao.com"
+            class="MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault"
+          >
+            M
+          </div>
+        </div>
+        <div
+          class="MuiCardHeader-content"
+        >
+          <span
+            class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+          >
+            Mingpao.com
+          </span>
+          <span
+            class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+          >
+            2020-10-26 06:42
+          </span>
+        </div>
+      </div>
+      <img
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+        src="https://fs.mingpao.com/ins/20201026/s00001/e4c8e468ceb2906db6f48a6f9820674c.jpg"
+        title="新冠肺炎｜今增8宗確診全屬輸入個案不設疫情記者會"
+      />
+      <div
+        class="MuiCardContent-root"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+        >
+          新冠肺炎｜今增8宗確診全屬輸入個案不設疫情記者會
+        </h2>
+        <p
+          class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+        >
+          【14:20更新】衛生署衛生防護中心公布，截至今（26日）零時零分，本港新增8宗新型冠狀病毒確診個案，新增個案全屬輸入個案，至今本港個案累計5304宗（包括5303宗確診個案和一宗疑似個案）。今日不會召開疫情記者會。
+        </p>
+      </div>
+      <span
+        class="MuiCardActionArea-focusHighlight"
+      />
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+  </div>
+</DocumentFragment>
+`;
