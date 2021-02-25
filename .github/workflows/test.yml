@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@master
+        uses: actions/checkout@main
       - name: Setup Node.js version
-        uses: actions/setup-node@master
+        uses: actions/setup-node@main
         with:
           node-version: 12.16
       - name: Get yarn cache directory path
