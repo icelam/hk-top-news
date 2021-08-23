@@ -1,10 +1,12 @@
 import throttle from '../throttle';
 
-jest.useFakeTimers();
-
 const functionToBeThrottled = jest.fn(() => {});
 
 describe('throttle()', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
   it('should apply throttle to function', () => {
     const throttledFunction = jest.fn(throttle(functionToBeThrottled, 500));
 

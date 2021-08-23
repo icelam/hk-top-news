@@ -16,16 +16,16 @@ import routes from '@routes';
 /* Pages */
 const NewsFeedContainer = lazy(() => import(/* webpackChunkName: 'NewsFeed' */ '@containers/NewsFeedContainer'));
 
-const history = createBrowserHistory();
+const browserHistory = createBrowserHistory();
 
 // Execute when user navigates between routes
 const onRouteChange = (history) => {
-  history.listen((location) => {
+  history.listen(() => {
     window.scrollTo(0, 0);
   });
 };
 
-onRouteChange(history);
+onRouteChange(browserHistory);
 
 const redirectToHome = () => <Redirect to={routes.newsFeed} />;
 
@@ -33,7 +33,7 @@ const App = () => (
   <ThemeProvider theme={muiTheme}>
     <div className="App">
       <Page>
-        <Router history={history}>
+        <Router history={browserHistory}>
           <Suspense fallback={<Loading />}>
             <Switch>
               <Route exact path={routes.newsFeed} component={NewsFeedContainer} />

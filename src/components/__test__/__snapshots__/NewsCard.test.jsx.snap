@@ -19,7 +19,7 @@ exports[`News Card renders correctly 1`] = `
         >
           <div
             aria-label="Mingpao.com"
-            class="MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault"
+            class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault"
           >
             M
           </div>

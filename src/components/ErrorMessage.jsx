@@ -17,7 +17,7 @@ const ErrorMessage = ({ message }) => {
   const classes = useStyles();
 
   return (
-    <Grid container direction="column" justify="center" alignItems="center" className={classes.root}>
+    <Grid container direction="column" justifyContent="center" alignItems="center" className={classes.root}>
       <Grid item>
         <Typography variant="body2" color="textSecondary" component="p" align="center">{message}</Typography>
       </Grid>

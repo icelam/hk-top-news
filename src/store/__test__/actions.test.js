@@ -11,7 +11,6 @@ import mockedErrorResponse from './mockedResponse/error.json';
 
 // Mock news service
 jest.mock('../../services/newsService');
-getNews.mockResolvedValue({ data: mockedNewsResponse });
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -64,6 +63,10 @@ const expectedUpdateSearchKeywordAction = {
 };
 
 describe('News Actions', () => {
+  beforeEach(() => {
+    getNews.mockResolvedValue({ data: mockedNewsResponse });
+  });
+
   afterEach(() => {
     store.clearActions();
   });
