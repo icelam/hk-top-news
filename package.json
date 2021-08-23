@@ -22,9 +22,9 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/react-hooks": "^3.4.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/react-hooks": "^7.0.1",
     "customize-cra": "^1.0.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-import-resolver-alias": "^1.1.2",
@@ -34,7 +34,7 @@
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
     "prettier": "^2.3.2",
-    "react-test-renderer": "^16.14.0",
+    "react-test-renderer": "^17.0.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-mock-store": "^1.5.4",
     "workbox-build": "^4.3.1"
@@ -44,17 +44,13 @@
     "build": "GENERATE_SOURCEMAP=false react-app-rewired build && npm run build-sw",
     "prepare": "husky install",
     "postbuild": "node scripts/postBuild.js",
-    "test": "react-app-rewired test --verbose --watchAll",
-    "test:ci": "react-app-rewired test --watchAll=false --ci --runInBand",
+    "test": "react-app-rewired test --verbose --watchAll --coverage",
+    "test:ci": "react-app-rewired test --watchAll=false --ci --runInBand --coverage",
     "eject": "react-scripts eject",
     "build-sw": "node ./src/sw-build.js"
   },
   "jest": {
     "globalSetup": "<rootDir>/jest.setup.global.js",
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom"
-    ],
-    "collectCoverage": true,
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
       "!**/node_modules/**",
