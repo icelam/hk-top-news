@@ -6,7 +6,7 @@
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "node-sass": "^4.12.0",
     "react": "^16.14.0",
     "react-app-polyfill": "^1.0.6",
@@ -17,7 +17,7 @@
     "react-scripts": "^3.4.3",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
-    "replace": "^1.2.0"
+    "replace": "^1.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
