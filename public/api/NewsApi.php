@@ -18,6 +18,7 @@ class NewsApi {
     curl_setopt($curl, CURLOPT_URL, $this->api_endpoint . "/top-headlines?" . http_build_query($query));
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_REFERER, 'https://localhost:3000');
 
     $server_output = curl_exec ($curl);
 
