@@ -2,9 +2,9 @@ name: Build
 on:
   push:
     branches:
-      - '**'
+      - master
     tags-ignore:
-      - '**' #prevent double build on release tag
+      - '**' # prevent duplicate builds for any push of release tags
   pull_request:
     branches:
       - '**'
