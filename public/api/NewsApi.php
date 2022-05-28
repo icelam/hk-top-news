@@ -19,6 +19,7 @@ class NewsApi {
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_REFERER, 'https://localhost:3000');
+    curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 
     $server_output = curl_exec ($curl);
 
