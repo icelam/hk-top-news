@@ -1,0 +1,20 @@
+# Basic dependabot.yml file with
+# https://docs.github.com/en/github/administering-a-repository/enabling-and-disabling-version-updates#example-dependabotyml-file
+
+version: 2
+registries:
+  npm-codeartifact:
+    type: npm-registry
+    url: https://coherent-223490286239.d.codeartifact.ap-southeast-1.amazonaws.com/npm/js/
+    # This will be expired every 12 hours and needs manual updates
+    # FIXME: create a corn job to automatically update token
+    token: ${{secrets.COHERENT_CODEARTIFACT_TOKEN}}
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      timezone: "Asia/Hong_Kong"
+    commit-message:
+      prefix: "ci"
+    rebase-strategy: "auto"
