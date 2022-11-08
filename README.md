@@ -16,7 +16,6 @@
     <a href="https://github.com/icelam/hk-top-news/actions?query=workflow%3ABuild"><img alt="Build" src="https://github.com/icelam/hk-top-news/workflows/Build/badge.svg"/></a>
     <a href="https://github.com/icelam/hk-top-news/actions?query=workflow%3A%22Unit+test%22"><img alt="Unit Test" src="https://github.com/icelam/hk-top-news/workflows/Unit%20test/badge.svg"/></a>
     <a href="https://codecov.io/gh/icelam/hk-top-news"><img alt="codecov" src="https://codecov.io/gh/icelam/hk-top-news/branch/master/graph/badge.svg"/></a>
-    <a href="https://lgtm.com/projects/g/icelam/hk-top-news/context:javascript"><img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/icelam/hk-top-news.svg?logo=lgtm"/></a>
 </p>
 
 ## Development Notees ##
